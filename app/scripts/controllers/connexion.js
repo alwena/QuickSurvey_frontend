@@ -8,7 +8,7 @@
  * Controller of the quickSurveyFrontendApp
  */
 angular.module('quickSurveyApp')
-  .controller('MainCtrl', function () {
+  .controller('ConnexionCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

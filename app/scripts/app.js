@@ -8,5 +8,48 @@
  *
  * Main module of the application.
  */
-angular
-  .module('quickSurveyFrontendApp', []);
+var quickSurveyApp = angular
+  .module('quickSurveyApp', [
+  'ngRoute', 'ui.bootstrap'
+  ]);
+
+quickSurveyApp.config(['$routeProvider',
+     function($routeProvider) {
+          $routeProvider.
+              when('/accueil', {
+                   templateUrl: '/views/inscription.html',
+                   controller: 'inscriptionCtrl'
+              }).
+              when('/connexion', {
+                   templateUrl: '/views/connexion.html',
+                   controller: 'connexionCtrl'
+              }).
+              otherwise({
+                   redirectTo: '/accueil'
+              });
+      }]);
+
+quickSurveyApp.directive('footer', function () {
+    return {
+        restrict: 'A', //This menas that it will be used as an attribute and NOT as an element. I don't like creating custom HTML elements
+        replace: true,
+        templateUrl: "footer.html",
+        controller: ['$scope', '$filter', function ($scope, $filter) {
+            // Your behaviour goes here :)
+        }]
+    };
+});
+
+quickSurveyApp.directive('header', function () {
+    return {
+        restrict: 'A', //This menas that it will be used as an attribute and NOT as an element. I don't like creating custom HTML elements
+        replace: true,
+        templateUrl: "header.html",
+        controller: ['$scope', '$filter', function ($scope, $filter) {
+            // Your behaviour goes here :)
+            //
+        }]
+    };
+});
+
+
