@@ -1,16 +1,19 @@
 <div id="global">
-<div class="container">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
-
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+<div>
+  <h1>Gerer vos enquêtes en ligne Gratuitement</h1>
+  <div class="enquete">
+  <div>
+    <h3>Création d'une nouvelle enquête</h3>
+    <button type="button" class="btn btn-outline-secondary">Créer une nouvelle enquête</button>
+  </div>
+  <br>
+  <div>
+      <h3>Modifier une enquête existante</h3>
+    <select class="select">
+        <option ng-repeat="enquete in enquetes">{{enquete.libelle}}</option>
+    </select>
+</div>
+ 
+</div>
 </div>
 </div>

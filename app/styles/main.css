@@ -18,11 +18,28 @@
    font-size: 14px;
 }
 .container {
-  padding-right: 15px;
-  padding-left: 15px;
-  padding-top: 15px;
   margin-right: auto;
   margin-left: auto;
+}
+.btn{
+  position: relative;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 20px;
+
+}
+.select{
+  width: 300px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+img {
+	max-width: 100%;
+	height: auto;
+}
+body
+{
+   text-align: center;
 }
 @media (min-width: 768px) {
   .container {
