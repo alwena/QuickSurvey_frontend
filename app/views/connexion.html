@@ -1,45 +1,35 @@
-<html>
-	<head>
-		<meta charset="utf-8" />
-        <link rel="stylesheet" href="styles/style.css" />
-        <title>Connexion</title>
-	</head>
-	<body>
-	
-	<form method="post" action="" enctype="">
+
+	    <div class="texte"><p>Bienvenue sur Quicksurvey, le site qui vous permet de créer vos enquêtes rapidement et gratuitement</p>
+		</div>
 		<div align="center" class="centre">
-		<fieldset>
-			<h3>
-				Déjà inscrit? Identifiez vous!
-			</h3>
+			<h3>Déjà inscrit? Identifiez vous!</h3>
+			<div class="saisie">
 			<label for="login">
-				Login :
+				Login 
 			</label>  
 			<input name="pseudo" type="text" id="pseudo" /> <br />
-			
+			</div>
+			<br>
+			<div class="saisie">
 			<label for="password">
-				Mot de Passe :
+				Mot de Passe 
 			</label>
 			<input type="password" name="password" id="password" /><br />
-			<p>
-				<input type="submit" value="Valider" />
-
-			</p>
-			<h3>
-				Vous Souhaitez vous inscrire?
-			</h3>
-			<h3>
-				Créer votre espace
-			</h3>
-			<p>
-				<input type="submit" value=" Je crée mon espace" />
-
-			</p>
-		</fieldset>
 		</div>
-	</form>
-	
-	</body>
-</html>
+			<p>
+					<button class="btn btn-primary" ng-click="verificationCompte()" >Valider</button>
+
+			</p>
+			
+		</div>
+	    <h3>
+			Vous Souhaitez vous inscrire?
+		</h3>
+		<div>
+			<button class="btn btn-primary" ng-click="formulaireInscription()" >Je crée mon espace</button>
+
+		</div>
+
+
 	
 	

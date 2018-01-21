@@ -8,7 +8,7 @@
  * Controller of the quickSurveyFrontendApp
  */
 angular.module('quickSurveyApp')
-  .controller('MainCtrl', [ '$scope', function ($scope) {
+  .controller('MainCtrl', [ '$scope', '$location', function ($scope, $location) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -20,5 +20,16 @@ angular.module('quickSurveyApp')
       {"libelle": "enquete 2"}
     ];
     
+    $scope.deconnexion = function() {
+      $location.path('/connexion');
+    };
     
+  $scope.creerNouvelleEnquete = function(){
+    if ($scope.connexion) {
+      $location.path('/enquete');
+    } else {
+      $location.path('connexion');
+    }
+  }
+
   }]);

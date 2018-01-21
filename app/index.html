@@ -12,6 +12,7 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/connexion.css">
     <!-- endbuild -->
   </head>
   <body ng-app="quickSurveyApp">
@@ -22,7 +23,9 @@
     <div header></div>
 
     <div class="container global">
-        <div ng-include="'views/main.html'" ng-controller="MainCtrl"></div>
+        <div ng-view>
+          </div>  
+       <!-- <div ng-include="'views/main.html'" ng-controller="MainCtrl"></div> -->
     </div>
 
     <div footer></div>
@@ -42,15 +45,17 @@
     <!-- bower:js -->
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
-
-
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/connexion.js"></script>
+        <script src="scripts/controllers/inscription.js"></script>
+
+
         <!-- endbuild -->
 </body>
 </html>

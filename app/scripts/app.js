@@ -17,15 +17,19 @@ quickSurveyApp.config(['$routeProvider',
      function($routeProvider) {
           $routeProvider.
               when('/accueil', {
+                   templateUrl: '/views/main.html',
+                   controller: 'MainCtrl'
+              }).
+              when('/inscription', {
                    templateUrl: '/views/inscription.html',
-                   controller: 'inscriptionCtrl'
+                   controller: 'InscriptionCtrl'
               }).
               when('/connexion', {
                    templateUrl: '/views/connexion.html',
-                   controller: 'connexionCtrl'
+                   controller: 'ConnexionCtrl'
               }).
               otherwise({
-                   redirectTo: '/accueil'
+                   redirectTo: '/connexion'
               });
       }]);
 
