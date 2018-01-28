@@ -1,0 +1,53 @@
+<html>
+		<head>
+			<meta charset="utf-8" />
+	        <link rel="stylesheet" href="styles/style.css" />
+	        <title>Définition d'une question</title>
+		</head>
+		<body>
+			
+			<form method="post" action="" enctype="">
+				<div align="center" class="centre">
+					<fieldset>
+						<h3>
+							Définition de la question
+						</h3> <br />
+						<h1>
+								<input name="nom_enquete" type="text" id="name" placeholder="Rechercher une question" /> <br />
+						</h1>
+						<label for="libelle">
+							Libellé :
+						</label>
+							<input type="text" name="libelle" id="libelle" /><br />
+						<label for="type_rep">
+							Type de Réponse :
+						</label>					
+							<p>
+								<label for="champ">
+									Champ
+								</label>
+								<input type="radio" name="champ" id="champ" value="Champ" /><br />
+
+								<label for="choix_simple">
+									Choix simple
+								</label>
+								<input type="radio" name="choix_simple" id="choix_simple" value="" /><br />
+
+								<label for="choix_multiple">
+									Choix multiple
+								</label>
+
+								<input type="radio" name="choix_multiple" id="choix_multiple" value="" /><br />
+							</p>
+
+						<p>
+							<input type="submit" value="Enregistrer" id="save"/>
+							<input type="submit" value="Nouvelle question" id="new"/>
+							<input type="submit" value="Définir la cible" id="define"/>
+						</p>
+
+					</fieldset>
+				</div>
+			</form>
+		</body>
+</html>
