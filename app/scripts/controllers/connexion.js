@@ -8,7 +8,7 @@
  * Controller of the quickSurveyFrontendApp
  */
 angular.module('quickSurveyApp')
-  .controller('ConnexionCtrl', [ '$scope', '$resource', '$location', function ($scope, $resource, $location ) {
+  .controller('ConnexionCtrl', [ '$scope', '$resource', '$location', '$window', function ($scope, $resource, $location, $window   ) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -22,6 +22,7 @@ angular.module('quickSurveyApp')
 
     $scope.verificationCompte = function(){
 
+       if ($scope.user && $scope.user.login && $scope.user.password ) {
        var userAccount = $resource('http://localhost/QuickSurvey_backend/web/app_dev.php/api/user/:login/:password',
         { login:'@login', password:'@password' });
 
@@ -34,8 +35,16 @@ angular.module('quickSurveyApp')
                  $location.path('/accueil');
             } else {
                 console.log($scope.user.message);
+                $window.alert($scope.user.message);
             }
         });
+        } else {
+
+
+           console.log("donnees mal renseignees");
+            $window.alert("Veuillez saisir votre login et votre mot de passe!");
+
+        }
 
     };
 
