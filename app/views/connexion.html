@@ -5,22 +5,22 @@
 			<h3>Déjà inscrit? Identifiez vous!</h3>
 			<div class="saisie">
 			<label for="login">
-				Login 
-			</label>  
-			<input name="pseudo" type="text" id="pseudo" /> <br />
+				Login
+			</label>
+			<input name="login" type="text" ng-model="user.login" id="login" /> <br />
 			</div>
 			<br>
 			<div class="saisie">
 			<label for="password">
-				Mot de Passe 
+				Mot de Passe
 			</label>
-			<input type="password" name="password" id="password" /><br />
+			<input type="password" name="password" ng-model="user.password" id="password" /><br />
 		</div>
 			<p>
 					<button class="btn btn-primary" ng-click="verificationCompte()" >Valider</button>
 
 			</p>
-			
+
 		</div>
 	    <h3>
 			Vous Souhaitez vous inscrire?
@@ -31,5 +31,7 @@
 		</div>
 
 
-	
-	
+      <script type="text/ng-template" id="messageUser.html">
+          </script>
+
+

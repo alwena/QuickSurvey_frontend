@@ -10,7 +10,7 @@
  */
 var quickSurveyApp = angular
   .module('quickSurveyApp', [
-  'ngRoute', 'ui.bootstrap'
+  'ngRoute', 'ui.bootstrap', 'ngResource'
   ]);
 
 quickSurveyApp.config(['$routeProvider',
