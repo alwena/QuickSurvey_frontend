@@ -1,0 +1,64 @@
+#global {
+  margin-left: auto;
+  margin-right: auto;
+  width: 800px; /* largeur obligatoire pour être centré */
+}
+.title{
+  font-size:50px;
+  text-align:center;
+}
+.connect{
+  float:right;
+}
+input{
+  margin-left: 20px;
+}
+.footer{
+   position: absolute;
+   text-align: center;
+   bottom: 0;
+   font-size: 14px;
+}
+.container {
+  margin-right: auto;
+  margin-left: auto;
+}
+.btn{
+  position: relative;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 20px;
+
+}
+.select{
+  width: 300px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+img {
+	max-width: 100%;
+	height: auto;
+}
+body
+{
+   text-align: center;
+}
+.typeReponse {
+  float: left;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}

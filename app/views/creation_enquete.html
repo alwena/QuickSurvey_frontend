@@ -1,47 +1,37 @@
-<html>
-	<head>
-		<meta charset="utf-8" />
-        <link rel="stylesheet" href="styles/style.css" />
-        <title>Creation enquete</title>
-	</head>
-	<body>
-	
-	<form method="post" action="" enctype="">
-		<div align="center" class="centre">
-		<fieldset>
+<div id="global" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+
 			<h3>
-				Définition d'une enquête
+				Définition d'une nouvelle enquête
 			</h3>
+  </br>
+
 			<label for="name">
 				Nom de l'enquête :
-			</label>  
-			<input name="nom_enquete" type="text" id="name" /> <br />
-			
+			</label>
+			<input name="nom_enquete" ng-model="survey.label" type="text" id="name" /> <br />
+  </br>
+
 			<label for="date_debut">
 				Date de début :
 			</label>
-			<input type="date" name="date_debut" id="date_debut" /><br />
-			
+      			<input type="date" ng-model="survey.dateCreated" name="date_debut" id="date_debut" /><br />
+  </br>
+
 			<label for="date_fin">
 				Date de fin :
 			</label>
-			<input type="date" name="date_fin" id="date_fin" /><br />
+			<input type="date" name="date_fin" ng-model="survey.dateEnd" id="date_fin" /><br />
+  </br>
 
-			<p>
-				<input type="submit" value="Créer une question" id="create"/>
+        <button id="create" ng-click="creationQuestion()">Créer une question</button>
+  </br>
+  </br>
 
-			</p>
+  <button id="list" ng-click="listeQuestions()">Liste des questions</button>
 
-			<p>
-				<input type="submit" value="Liste des questions" id="list" />
 
-			</p>
 
-		</fieldset>
 		</div>
-	</form>
-	
-	</body>
-</html>
-	
-	
+
+
+

@@ -8,7 +8,7 @@
  * Controller of the quickSurveyFrontendApp
  */
 angular.module('quickSurveyApp')
-  .controller('ConnexionCtrl', [ '$scope', '$resource', '$location', '$window', function ($scope, $resource, $location, $window   ) {
+  .controller('ConnexionCtrl', [ '$scope', '$resource', '$location', '$window', '$rootScope', function ($scope, $resource, $location, $window, $rootScope   ) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -32,6 +32,7 @@ angular.module('quickSurveyApp')
             $scope.user = result;
 
             if($scope.user.login != undefined) {
+                  $rootScope.userId = $scope.user.id;
                  $location.path('/accueil');
             } else {
                 console.log($scope.user.message);

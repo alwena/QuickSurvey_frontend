@@ -8,14 +8,16 @@
  * Controller of the quickSurveyFrontendApp
  */
 angular.module('quickSurveyApp')
-  .controller('MainCtrl', [ '$scope', '$resource', '$location', function ($scope, $resource, $location) {
+  .controller('MainCtrl', [ '$scope', '$resource', '$location', '$rootScope', function ($scope, $resource, $location, $rootScope) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
 
-    var listeEnquetes = $resource('http://localhost/QuickSurvey_backend/web/app_dev.php/api/surveys');
+    var url = "http://localhost/QuickSurvey_backend/web/app_dev.php/api/user/"+$rootScope.userId+"/surveys";
+
+    var listeEnquetes = $resource(url);
 
      listeEnquetes = listeEnquetes.query();
 
@@ -23,21 +25,12 @@ angular.module('quickSurveyApp')
                  $scope.enquetes = result;
      });
 
-    /*$scope.enquetes = [
-      {"libelle": "enquete toto"},
-      {"libelle": "enquete titi"}
-    ];*/
-
     $scope.deconnexion = function() {
       $location.path('/connexion');
     };
 
   $scope.creerNouvelleEnquete = function(){
-    if ($scope.connexion) {
       $location.path('/enquete');
-    } else {
-      $location.path('connexion');
-    }
   }
 
   }]);

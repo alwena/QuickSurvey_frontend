@@ -1,14 +1,5 @@
-<html>
-		<head>
-			<meta charset="utf-8" />
-	        <link rel="stylesheet" href="styles/style.css" />
-	        <title>Définition d'une question</title>
-		</head>
-		<body>
-			
-			<form method="post" action="" enctype="">
+
 				<div align="center" class="centre">
-					<fieldset>
 						<h3>
 							Définition de la question
 						</h3> <br />
@@ -21,33 +12,33 @@
 							<input type="text" name="libelle" id="libelle" /><br />
 						<label for="type_rep">
 							Type de Réponse :
-						</label>					
-							<p>
+						</label>
+							<div class="typeReponse">
 								<label for="champ">
 									Champ
 								</label>
-								<input type="radio" name="champ" id="champ" value="Champ" /><br />
-
+								<input type="radio" name="champ" id="champ" value="Champ" />
 								<label for="choix_simple">
 									Choix simple
 								</label>
-								<input type="radio" name="choix_simple" id="choix_simple" value="" /><br />
+								<input type="radio" name="choix_simple" id="choix_simple" value="" />
 
 								<label for="choix_multiple">
 									Choix multiple
 								</label>
 
-								<input type="radio" name="choix_multiple" id="choix_multiple" value="" /><br />
-							</p>
+								<input type="radio" name="choix_multiple" id="choix_multiple" value="" />
+							</div>
 
+          <br />
 						<p>
-							<input type="submit" value="Enregistrer" id="save"/>
-							<input type="submit" value="Nouvelle question" id="new"/>
-							<input type="submit" value="Définir la cible" id="define"/>
+              <button id="save">Enregistrer</button>
+              <br />
+              <br />
+              <button id="new">Nouvelle Question</button>
+              <br />
+              <br />
+              <button id="define">Définir la cible</button>
 						</p>
 
-					</fieldset>
 				</div>
-			</form>
-		</body>
-</html>
