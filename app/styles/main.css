@@ -43,6 +43,28 @@ body
 {
    text-align: center;
 }
+.modal-title {
+    margin-left: 18px;
+}
+
+.modal-body {
+    border-top: 1px solid #A21E31;
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: 1% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+.modal-dialog {
+     left: 50%;
+     top: 50%;
+     overflow: auto; /* Enable scroll if needed */
+     background-color: rgb(0,0,0); /* Fallback color */
+     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
 @media (min-width: 768px) {
   .container {
     width: 750px;

@@ -8,7 +8,7 @@
  * Controller of the quickSurveyFrontendApp
  */
 angular.module('quickSurveyApp')
-  .controller('ConnexionCtrl', [ '$scope', '$resource', '$location', '$window', '$rootScope', function ($scope, $resource, $location, $window, $rootScope   ) {
+  .controller('ConnexionCtrl', [ '$scope', '$resource', '$location', '$window', '$rootScope', '$uibModal', function ($scope, $resource, $location, $window, $rootScope, $uibModal   ) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -32,12 +32,24 @@ angular.module('quickSurveyApp')
             $scope.user = result;
 
             if($scope.user.login != undefined) {
-                  $rootScope.userId = $scope.user.id;
+                 sessionStorage.setItem('userId',$scope.user.id);
                  $location.path('/accueil');
             } else {
                 console.log($scope.user.message);
-                $window.alert($scope.user.message);
+              //  $window.alert($scope.user.message);
+                $uibModal.open({
+                     templateUrl: 'erreurConnexion.html',
+                     controller: ModalInstanceCtrl,
+                     backdrop: 'static',
+                     scope: $scope,
+                     resolve: {
+                            data: $scope.user
+                     }
+                 });
+
+
             }
+
         });
         } else {
 

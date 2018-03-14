@@ -15,7 +15,8 @@ angular.module('quickSurveyApp')
       'Karma'
     ];
 
-    var url = "http://localhost/QuickSurvey_backend/web/app_dev.php/api/user/"+$rootScope.userId+"/surveys";
+    var userId = sessionStorage.getItem('userId');
+    var url = "http://localhost/QuickSurvey_backend/web/app_dev.php/api/user/"+userId+"/surveys";
 
     var listeEnquetes = $resource(url);
 
@@ -33,4 +34,10 @@ angular.module('quickSurveyApp')
       $location.path('/enquete');
   }
 
+  $scope.afficherEnquete = function(survey) {
+
+      var enqueteJson = JSON.stringify(survey);
+      sessionStorage.setItem('enquete',enqueteJson);
+      $location.path('/question');
+  }
   }]);

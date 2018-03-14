@@ -13,6 +13,23 @@ var quickSurveyApp = angular
   'ngRoute', 'ui.bootstrap', 'ngResource'
   ]);
 
+var ModalInstanceCtrl = function($scope,$uibModalInstance, data) {
+//var ModalInstanceCtrl = function ($scope, $uibModalInstance, $translate, data) {
+    'use strict';
+    $scope.data = data;
+    $scope.ok = function () {
+        $uibModalInstance.close();
+    };
+
+    $scope.choixProfil = function (profil) {
+        $uibModalInstance.close(profil);
+    };
+
+    $scope.cancel = function () {
+        $uibModalInstance.dismiss('cancel');
+    };
+} ;
+
 quickSurveyApp.config(['$routeProvider',
      function($routeProvider) {
           $routeProvider.

@@ -15,6 +15,7 @@ angular.module('quickSurveyApp')
       'Karma'
     ];
 
-
+    var enqueteJson = sessionStorage.getItem('enquete');
+    $scope.survey = JSON.parse(enqueteJson);
 
   }]);

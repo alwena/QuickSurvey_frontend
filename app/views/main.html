@@ -13,9 +13,9 @@
   <br>
   <div>
       <h3>Modifier une enquête existante</h3>
-    <select class="select">
-        <option ng-repeat="enquete in enquetes">{{enquete.label}}</option>
-    </select>
+    <select class="select" ng-model="enquete" ng-options="enquete.label for enquete in enquetes">
+   </select>
+    <button type="button" class="btn btn-outline-secondary" ng-click="afficherEnquete(enquete)">Afficher l'enquête</button>
 </div>
 
 </div>
