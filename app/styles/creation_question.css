@@ -43,9 +43,17 @@ body
 {
    text-align: center;
 }
-.typeReponse {
-  float: left;
-  text-align: center;
+
+.libelleInput{
+ width:500px
+}
+
+.libelleQuestion {
+  display:inline-block
+}
+
+.nombreQuestion{
+ width:30px
 }
 @media (min-width: 768px) {
   .container {
@@ -61,4 +69,5 @@ body
   .container {
     width: 1170px;
   }
+
 }

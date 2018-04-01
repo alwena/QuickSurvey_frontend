@@ -8,39 +8,62 @@
             {{survey.label}}
 						</h3> <br />
 
-						<label for="libelle">
-							Libellé question :
-						</label>
-							<input type="text" name="libelle" id="libelle" /><br />
-						<label>
-							Type de Réponse :
-						</label>
-							<div class="typeReponse">
-								<label for="champ">
-									Champ
-								</label>
-								<input type="radio" name="champ" id="champ" value="Champ" />
-								<label for="choix_simple">
-									Choix simple
-								</label>
-								<input type="radio" name="choix_simple" id="choix_simple" value="" />
+          <div ng_repeat="question in questions ">
+            <div class="question">
+              <div class="libelleQuestion">
+						<p>
+							Question n°{{$index+1}} :
+							<input class="libelleInput" ng-if="question.libelle == undefined" type="text" name="libelle" id="libelle" />
+                <input class="libelleInput" ng-if="question.libelle != undefined" value="{{question.libelle}}">
+            </p>
+              </div>
+              <div>
+                <label>Type de réponse </label>
+								<label>
+									<input type="radio" ng-model="question.type"  ng-change="affichageNombreChoix(question)" value="libre" />
+                  libre
+                </label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                  <label>
+  									<input type="radio"  ng-model="question.type" ng-change="affichageNombreChoix(question)" value="choix" />
+                  choix
+                  </label><br /><br />
+                <div ng-if="question.choixActive" >
+                  <div class="definitionChoix">
+                  <label>
+                  Nombre de choix possible :
+                  <input class="nombreQuestion" type="text"  ng-change="affichageChoix(question)" ng-model="question.nombreChoix" />
+                  </label>&nbsp&nbsp&nbsp
+                  <label>Choix multiple :</label>
+                  <input type="radio" ng-model="question.choixMultiple" value="oui">oui
+                  <input type="radio" ng-model="question.choixMultiple" value="non">non &nbsp&nbsp&nbsp
+                  <label>Avec saisie priorité :</label>
+                  <input type="radio" ng-model="question.priorite" value="oui">oui
+                  <input type="radio" ng-model="question.priorite" value="non">non
+                  </div>
+                  <br />
+                  <div ng-repeat="choix in question.choix">
+                    <label>
+                      Choix n°{{choix.numero}} :
+                      <input type="text"  ng-model="choix.libelle" />
+                    </label>
+                  </div>
+                </div>
+                <div>
 
-								<label for="choix_multiple">
-									Choix multiple
-								</label>
-
-								<input type="radio" name="choix_multiple" id="choix_multiple" value="" />
+                </div>
+              </div>
 							</div>
+
+            <br />
+          </div>
 
           <br />
 						<p>
-              <button id="save">Enregistrer</button>
+              <button ng-click="ajouter()">Ajouter une Question</button>
               <br />
               <br />
-              <button id="new">Nouvelle Question</button>
+              <button ng-click="enregistrer()">Enregistrer et Définir la cible</button>              <br />
               <br />
-              <br />
-              <button id="define">Définir la cible</button>
 						</p>
 
 				</div>
