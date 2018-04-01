@@ -19,6 +19,7 @@ angular.module('quickSurveyApp')
     var url = "http://localhost/QuickSurvey_backend/web/app_dev.php/api/user/"+userId+"/surveys";
 
     var listeEnquetes = $resource(url);
+    sessionStorage.removeItem('enquete');
 
      listeEnquetes = listeEnquetes.query();
 
@@ -38,6 +39,6 @@ angular.module('quickSurveyApp')
 
       var enqueteJson = JSON.stringify(survey);
       sessionStorage.setItem('enquete',enqueteJson);
-      $location.path('/question');
+      $location.path('/enquete');
   }
   }]);

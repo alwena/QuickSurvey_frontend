@@ -18,4 +18,8 @@ angular.module('quickSurveyApp')
     var enqueteJson = sessionStorage.getItem('enquete');
     $scope.survey = JSON.parse(enqueteJson);
 
+    $scope.retour = function() {
+      $location.path('/enquete');
+    };
+
   }]);

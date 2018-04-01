@@ -18,6 +18,15 @@ angular.module('quickSurveyApp')
 
  $scope.sauvegarder = function() {
 
+    //verification données obligatoires
+    if ($scope.user === undefined || $scope.user.login === undefined || $scope.user.login === ""
+        || $scope.user.email === undefined || $scope.user.email === ""
+        || $scope.user.confEmail === undefined || $scope.user.confEmail === ""
+        || $scope.user.password === undefined || $scope.user.password === ""
+        || $scope.user.confPassword === undefined || $scope.user.confPassword === "") {
+        $window.alert("Veuillez renseigner toutes les informations avant d'enregistrer");
+    } else {
+
     //verification email
     if ($scope.user.email != $scope.user.confEmail) {
        $window.alert("Probleme dans la confirmation de l'email");
@@ -33,11 +42,16 @@ angular.module('quickSurveyApp')
     $scope.userCreate = userAccount.save($scope.user);
 
     $scope.userCreate.$promise.then(function (result) {
-      $scope.user = result;
-       $location.path('/connexion');
+      if ($scope.userCreate.message != undefined) {
+         $window.alert($scope.userCreate.message);
+      } else {
+          $scope.user = result;
+          $location.path('/connexion');
+      }
     });
     }
-}
+   }
+   }
  };
 
 

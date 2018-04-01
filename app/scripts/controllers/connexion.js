@@ -15,6 +15,7 @@ angular.module('quickSurveyApp')
       'Karma'
     ];
 
+     sessionStorage.removeItem('userId');
 
    $scope.formulaireInscription = function() {
       $location.path('/inscription');
@@ -36,26 +37,12 @@ angular.module('quickSurveyApp')
                  $location.path('/accueil');
             } else {
                 console.log($scope.user.message);
-              //  $window.alert($scope.user.message);
-                $uibModal.open({
-                     templateUrl: 'erreurConnexion.html',
-                     controller: ModalInstanceCtrl,
-                     backdrop: 'static',
-                     scope: $scope,
-                     resolve: {
-                            data: $scope.user
-                     }
-                 });
-
-
-            }
+                $window.alert($scope.user.message);
+                         }
 
         });
         } else {
-
-
-           console.log("donnees mal renseignees");
-            $window.alert("Veuillez saisir votre login et votre mot de passe!");
+           $window.alert("Veuillez saisir votre login et votre mot de passe!");
 
         }
 

@@ -1,8 +1,16 @@
+<div class="connect">
+  <i ng-click="retour()">Retour</i>
+</div>
+
 <div id="global" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 
-			<h3>
+			<h3 ng-if="!enqueteExiste">
 				Définition d'une nouvelle enquête
 			</h3>
+
+     <h3 ng-if="enqueteExiste">
+        Modification d'une enquête
+     </h3>
   </br>
 
 			<label for="name">
@@ -14,7 +22,7 @@
 			<label for="date_debut">
 				Date de début :
 			</label>
-      			<input type="date" ng-model="survey.dateCreated" name="date_debut" id="date_debut" /><br />
+      			<input type="date" ng-model="survey.dateStart" name="date_debut" id="date_debut" /><br />
   </br>
 
 			<label for="date_fin">
@@ -23,7 +31,8 @@
 			<input type="date" name="date_fin" ng-model="survey.dateEnd" id="date_fin" /><br />
   </br>
 
-        <button id="create" ng-click="creationEnquete()">Créer l'enquête</button>
+        <button ng-if="!enqueteExiste" id="create" ng-click="creationEnquete()">Créer l'enquête</button>
+        <button ng-if="enqueteExiste" id="modification" ng-click="modificationEnquete()">Modifier l'enquête</button>
   </br>
   </br>
 
