@@ -33,7 +33,60 @@ angular.module('quickSurveyApp')
 
     $scope.enregistrer = function () {
      var essai;
-     $scope.questionCreate = $scope.questions;
+     $scope.questionsCreate = {};
+     $scope.questionsCreate.questions = [];
+
+      for (var i=0; i<$scope.questions.length; i++) {
+         $scope.question = {};
+         $scope.question.label = $scope.questions[i].libelle;
+         $scope.question.maxAnswer = $scope.questions[i].maxChoix;
+         $scope.question.choices = [];
+         if ($scope.questions[i].type == "libre") {
+            $scope.question.hasOrder = false;
+            $scope.question.isMultiSelect = false;
+            $scope.question.maxAnswer = 0;
+
+         } else {
+            if ($scope.questions[i].priorite === "true") {
+              $scope.question.hasOrder = true;
+            } else {
+              $scope.question.hasOrder = false;
+            }
+            if ($scope.question.hasOrder === "true") {
+             $scope.question.isMultiSelect = true;
+            } else {
+             $scope.question.isMultiSelect = false;
+            }
+            $scope.question.maxAnswer = $scope.questions[i].maxChoix;
+
+            for (var j=0; j<$scope.questions[i].choix.length; j++){
+               $scope.choix = {};
+               $scope.choix.label = $scope.questions[i].choix[j].libelle;
+               $scope.question.choices.push($scope.choix);
+            }
+         }
+
+         $scope.questionsCreate.questions.push($scope.question);
+      }
+     //creation enquete
+      var enqueteJson = sessionStorage.getItem('enquete');
+      var enquete = JSON.parse(enqueteJson);
+
+      var url = 'http://localhost/QuickSurvey_backend/web/app_dev.php/api/survey/'+enquete.id+"/questions";
+
+       var question = $resource(url);
+
+       $scope.questionsCreate = question.save($scope.questionsCreate);
+
+       $scope.questionsCreate.$promise.then(function (result) {
+
+             if ($scope.questionsCreate.message != undefined) {
+                   $window.alert($scope.enqueteCreate.message);
+             } else {
+                $location.path('/personne');
+             }
+      });
+
 
     };
 

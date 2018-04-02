@@ -13,8 +13,8 @@
               <div class="libelleQuestion">
 						<p>
 							Question n°{{$index+1}} :
-							<input class="libelleInput" ng-if="question.libelle == undefined" type="text" name="libelle" id="libelle" />
-                <input class="libelleInput" ng-if="question.libelle != undefined" value="{{question.libelle}}">
+							<input class="libelleInput" ng-model="question.libelle" ng-if="question.libelle == undefined" type="text" name="libelle" id="libelle" />
+                <input class="libelleInput" ng-model="question.libelle" ng-if="question.libelle != undefined" value="{{question.libelle}}">
             </p>
               </div>
               <div>
@@ -34,11 +34,13 @@
                   <input class="nombreQuestion" type="text"  ng-change="affichageChoix(question)" ng-model="question.nombreChoix" />
                   </label>&nbsp&nbsp&nbsp
                   <label>Choix multiple :</label>
-                  <input type="radio" ng-model="question.choixMultiple" value="oui">oui
-                  <input type="radio" ng-model="question.choixMultiple" value="non">non &nbsp&nbsp&nbsp
+                  <input type="radio" ng-model="question.choixMultiple" value="true">oui
+                  <input type="radio" ng-model="question.choixMultiple" value="false">non &nbsp&nbsp&nbsp
+                    <label>Maximum réponse :</label>
+                    <input class="nombreQuestion" type="text" ng-model="question.maxChoix" />&nbsp&nbsp&nbsp
                   <label>Avec saisie priorité :</label>
-                  <input type="radio" ng-model="question.priorite" value="oui">oui
-                  <input type="radio" ng-model="question.priorite" value="non">non
+                  <input type="radio" ng-model="question.priorite" value="true">oui
+                  <input type="radio" ng-model="question.priorite" value="false">non
                   </div>
                   <br />
                   <div ng-repeat="choix in question.choix">
