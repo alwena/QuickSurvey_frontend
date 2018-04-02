@@ -53,6 +53,10 @@ quickSurveyApp.config(['$routeProvider',
                    templateUrl: '/views/creation_question.html',
                    controller: 'CreationQuestionCtrl'
               }).
+              when('/question', {
+                   templateUrl: '/views/liste_sondes.html',
+                   controller: 'ListeSondeCtrl'
+              }).
               otherwise({
                    redirectTo: '/connexion'
               });

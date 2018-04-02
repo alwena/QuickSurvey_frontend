@@ -1,45 +1,28 @@
-<html>
-		<head>
-			<meta charset="utf-8" />
-	        <link rel="stylesheet" href="styles/style.css" />
-	        <title>Liste des sondés</title>
-		</head>
-		<body>
-			
-			<form method="post" action="" enctype="">
+<div class="connect">
+  <i ng-click="retour()">Retour</i>
+</div>
+
 				<div align="center" class="centre">
-					<fieldset>
 						<h3>
-							Liste des sondés
+              {{survey.label}}
 						</h3> <br />
-											
-							
+
+          <div ng_repeat="personne in personnes ">
+
+
 								<label for="email">
 									Email:
 								</label>
-								<input type="text" name="email" id="email" /><br />
+            <input class="email" ng-model="personne.email" ng-if="personne.email == undefined" type="text" name="email" id="email" />
+            <input class="email" ng-model="personne.email" ng-if="personne.email != undefined" value="{{personne.email}}">
+            <br /><br />
 
-								<label for="email">
-									Email: 
-								</label>
-								<input type="text" name="choix2" id="email" /><br />
-
-								<label for="email">
-									Email: 
-								</label>
-
-								<input type="text" name="choix3" id="email" /><br />
-
-								<input type="submit" name="add" id="add" value="+" /><br />
-							
-
+          </div>
 						<p>
-							<input type="submit" value="Enregistrer l'enquête " id="save"/>
-							<input type="submit" value="Retour" id="return"/>
-						</p>
+              <button ng-click="ajouter()">Ajouter une personne</button><br /><br />
+              <button ng-click="enregistrer()">Terminer l'enquête</button>
 
-					</fieldset>
-				</div>
-			</form>
-		</body>
-</html>
+            </p>
+
+
+        </div>
