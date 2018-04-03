@@ -39,6 +39,6 @@ angular.module('quickSurveyApp')
 
       var enqueteJson = JSON.stringify(survey);
       sessionStorage.setItem('enquete',enqueteJson);
-      $location.path('/enquete');
+      $location.path('/visualiser');
   }
   }]);

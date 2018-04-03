@@ -1,0 +1,53 @@
+<div class="connect">
+  <i ng-click="retour()">Retour</i>
+</div>
+
+<div align="center" class="centre">
+
+  <h3>
+    {{survey.label}}
+  </h3>
+
+  <p>
+    Date de début : {{survey.dateStart}} &nbsp&nbsp&nbsp  Date de fin : {{survey.dateEnd}}
+  </p> <br />
+
+  <div ng_repeat="question in questions ">
+    <div class="question">
+      <div class="libelleQuestion">
+        <p>
+          Question n°{{question.number}} : {{question.question.label}}
+        </p>
+        <input ng-if="question.question.choices == '' " class="libelleInput" ng-model="question.libelle" ng-if="question.libelle == undefined" type="text" name="libelle" id="libelle" />
+
+        <div ng-repeat="choix in question.question.choices">
+          <label>
+            <input ng-if="!question.question.is_multi_select" type="radio" ng-model="question.choix" value="true">{{choix.label}}
+            <input ng-if="question.question.is_multi_select" type="checkbox" ng-model="question.choix" value="true">{{choix.label}}
+          </label>
+        </div>
+      </div>
+
+        <div>
+
+        </div>
+      </div>
+    </div>
+
+  <br />
+  <p>
+    <button ng-click="afficherCible()">Afficher la cible</button>              <br />
+    <br />
+  </p>
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
