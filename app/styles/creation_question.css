@@ -49,7 +49,8 @@ body
 }
 
 .libelleQuestion {
-  display:inline-block
+  text-align: initial;
+  padding-left: 300px;
 }
 
 .nombreQuestion{
