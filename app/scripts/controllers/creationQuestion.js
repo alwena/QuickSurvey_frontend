@@ -39,7 +39,6 @@ angular.module('quickSurveyApp')
       for (var i=0; i<$scope.questions.length; i++) {
          $scope.question = {};
          $scope.question.label = $scope.questions[i].libelle;
-         $scope.question.maxAnswer = $scope.questions[i].maxChoix;
          $scope.question.choices = [];
          if ($scope.questions[i].type == "libre") {
             $scope.question.hasOrder = false;
@@ -52,12 +51,14 @@ angular.module('quickSurveyApp')
             } else {
               $scope.question.hasOrder = false;
             }
-            if ($scope.question.hasOrder === "true") {
+            if ($scope.questions[i].choixMultiple === "true") {
              $scope.question.isMultiSelect = true;
+             $scope.question.maxAnswer = parseInt($scope.questions[i].maxChoix);
             } else {
              $scope.question.isMultiSelect = false;
+             $scope.question.maxAnswer = 0;
             }
-            $scope.question.maxAnswer = $scope.questions[i].maxChoix;
+
 
             for (var j=0; j<$scope.questions[i].choix.length; j++){
                $scope.choix = {};
@@ -81,7 +82,7 @@ angular.module('quickSurveyApp')
        $scope.questionsCreate.$promise.then(function (result) {
 
              if ($scope.questionsCreate.message != undefined) {
-                   $window.alert($scope.enqueteCreate.message);
+                   $window.alert($scope.questionsCreate.message);
              } else {
                 $location.path('/personne');
              }

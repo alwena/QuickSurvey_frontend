@@ -53,9 +53,13 @@ quickSurveyApp.config(['$routeProvider',
                    templateUrl: '/views/creation_question.html',
                    controller: 'CreationQuestionCtrl'
               }).
-              when('/question', {
+              when('/personne', {
                    templateUrl: '/views/liste_sondes.html',
                    controller: 'ListeSondeCtrl'
+              }).
+              when('/visualiser', {
+                   templateUrl: '/views/visualiser_enquete.html',
+                   controller: 'VisualiserEnqueteCtrl'
               }).
               otherwise({
                    redirectTo: '/connexion'

@@ -40,7 +40,7 @@ angular.module('quickSurveyApp')
 
               //creation enquete
               var userId = sessionStorage.getItem('userId');
-              var url = 'http://localhost/QuickSurvey_backend/web/app_dev.php/api/survey/'+surveyId;
+              var url = 'http://localhost/QuickSurvey_backend/web/app_dev.php/api/user/'+userId+'/survey/';
 
               var enquete = $resource(url);
 
