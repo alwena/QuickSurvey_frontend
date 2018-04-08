@@ -1,0 +1,29 @@
+<div class="connect">
+  <i ng-click="retour()">Retour</i>
+</div>
+
+				<div align="center" class="centre">
+          <h3>
+            {{survey.label}}
+          </h3>
+
+          <p>
+            Date de début : {{survey.dateStart}} &nbsp&nbsp&nbsp  Date de fin : {{survey.dateEnd}}
+          </p> <br />
+
+
+          <div ng_repeat="personne in personnes ">
+
+								<label for="email">
+									Email: {{personne.email}}
+								</label>
+            <br /><br />
+
+          </div>
+						<p>
+              <button ng-click="terminer()">Sortir</button>
+
+            </p>
+
+
+        </div>

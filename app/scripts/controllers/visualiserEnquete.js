@@ -62,6 +62,9 @@ angular.module('quickSurveyApp')
          $location.path('/accueil');
     };
 
+    $scope.afficherCible = function() {
+        $location.path('/visualiserSondes');
+    }
 
 
   }]);
